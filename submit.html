@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShoppingComp Leaderboard Submission</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ByteDance-BandAI/ShoppingComp/main/bandai.png" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111a31;
+      --line: #253457;
+      --text: #e5edf9;
+      --muted: #9fb0cc;
+      --accent: #8fd3ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #0a1020 0%, #0d1730 100%);
+      color: var(--text);
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    p, li {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .strong { color: #dbe8ff; }
+    .email {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dashed #5aa9d6;
+    }
+    code, pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    pre {
+      margin: 0;
+      background: #0b1630;
+      border: 1px solid #334b79;
+      border-radius: 10px;
+      padding: 12px;
+      overflow: auto;
+      color: #dbe8ff;
+    }
+    .section {
+      margin-top: 18px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: #d6e8ff;
+      text-decoration: none;
+      border: 1px solid #385387;
+      background: #102247;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="./index.html">Back to Leaderboard</a>
+    <section class="panel">
+      <h1>Submission Format</h1>
+      <p>
+        If you would like to add your model to the ShoppingComp leaderboard, please send your model response to
+        <a class="email" href="mailto:zhangyuan.zhang@bytedance.com">zhangyuan.zhang@bytedance.com</a>.
+      </p>
+
+      <div class="section">
+        <p class="strong">Email subject</p>
+        <pre>[ShoppingComp Leaderboard] Submission - &lt;Model Name&gt; - &lt;Organization&gt;</pre>
+      </div>
+
+      <div class="section">
+        <p class="strong">Required files</p>
+        <ul>
+          <li><span class="strong">predictions.jsonl</span>: model responses for the evaluated ShoppingComp split.</li>
+          <li><span class="strong">metadata.json</span>: basic run information (model, org, date, settings).</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <p class="strong">metadata.json example</p>
+        <pre>{
+  "model_name": "YourModelName",
+  "organization": "YourOrg",
+  "submission_date": "YYYY-MM-DD",
+  "eval_version": "v1",
+  "dataset_version": "v2",
+  "notes": "optional notes"
+}</pre>
+      </div>
+
+      <div class="section">
+        <p class="strong">predictions.jsonl format (one JSON per line)</p>
+        <pre>{"uuid":"task-uuid-1","response":"your full model response text"}
+{"uuid":"task-uuid-2","response":"your full model response text"}</pre>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

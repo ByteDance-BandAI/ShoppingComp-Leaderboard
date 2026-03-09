@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShoppingComp Leaderboard</title>
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ByteDance-BandAI/ShoppingComp/main/bandai.png" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #111a31;
+      --panel-2: #0f172a;
+      --line: #253457;
+      --text: #e5edf9;
+      --muted: #9fb0cc;
+      --accent: #38bdf8;
+      --ok: #22c55e;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #0a1020 0%, #0d1730 100%);
+      color: var(--text);
+    }
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #101a33 0%, #0f172a 100%);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .logo-wrap { text-align: center; margin-bottom: 10px; }
+    .logo-wrap img { width: 280px; max-width: 90%; height: auto; }
+    h1 {
+      margin: 0 0 8px 0;
+      font-size: 30px;
+      text-align: center;
+      letter-spacing: 0.2px;
+    }
+    .desc {
+      margin: 0 auto;
+      max-width: 980px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+    .chip {
+      text-decoration: none;
+      color: #d6e8ff;
+      border: 1px solid #385387;
+      background: #102247;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+    }
+    .status {
+      margin-top: 10px;
+      text-align: center;
+      min-height: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .status.ok { color: var(--ok); }
+    .status.warn { color: var(--warn); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+    .card .k {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .card .v {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      background: #0f1a35;
+    }
+    select, input {
+      border: 1px solid #334b79;
+      background: #0b1630;
+      color: #dbe8ff;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 14px;
+      min-height: 36px;
+    }
+    input { min-width: 240px; }
+    .toggle-btn {
+      color: #dbe8ff;
+      font-size: 13px;
+      padding: 8px 12px;
+      border: 1px solid #334b79;
+      border-radius: 10px;
+      background: #0b1630;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+    }
+    .toggle-btn:hover {
+      border-color: #4a679e;
+      background: #0d1a38;
+    }
+    .toggle-btn.active {
+      border-color: #38bdf8;
+      background: #0f2745;
+      color: #eaf6ff;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1120px;
+    }
+    thead th {
+      background: #0d1730;
+      color: #bcd4ff;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 12px;
+      font-size: 12px;
+      text-align: left;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+      vertical-align: middle;
+    }
+    tbody tr:hover { background: #132449; }
+    .num { font-variant-numeric: tabular-nums; }
+    .rank { font-weight: 700; color: #f8fbff; width: 64px; }
+    .model { font-weight: 600; }
+    .tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid #3b5891;
+      background: #142a57;
+      color: #d1e1ff;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .detail-col { display: none; }
+    .table-show-details .detail-col { display: table-cell; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="logo-wrap">
+        <img src="https://raw.githubusercontent.com/ByteDance-BandAI/ShoppingComp/main/bandai.png" alt="BandAI Logo" />
+      </div>
+      <h1>ShoppingComp Leaderboard</h1>
+      <p class="desc">
+        A public leaderboard for evaluating LLM-powered shopping agents on retrieval quality, rubric satisfaction,
+        report faithfulness, and safety-critical compliance.
+      </p>
+      <div class="links">
+        <a class="chip" target="_blank" rel="noopener noreferrer" href="https://github.com/ByteDance-BandAI/ShoppingComp">GitHub</a>
+        <a class="chip" target="_blank" rel="noopener noreferrer" href="https://huggingface.co/datasets/huaixiao/ShoppingComp">Hugging Face</a>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section id="stats" class="stats"></section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <select id="categoryFilter"><option value="">All Categories</option></select>
+        <select id="orgFilter"><option value="">All Organizations</option></select>
+        <input id="searchBox" type="search" placeholder="Search model / organization / category..." />
+        <button id="detailMetricsToggle" class="toggle-btn" type="button" aria-pressed="false">Show precision/recall</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="leaderboardTable">
+          <thead>
+            <tr>
+              <th data-sort="rank">Rank</th>
+              <th data-sort="model_name">Model</th>
+              <th data-sort="organization">Organization</th>
+              <th data-sort="category">Category</th>
+              <th data-sort="answer_match.f1">AnswerMatch-F1</th>
+              <th class="detail-col" data-sort="answer_match.precision">AnswerMatch-P</th>
+              <th class="detail-col" data-sort="answer_match.recall">AnswerMatch-R</th>
+              <th data-sort="sop_avg">SoP</th>
+              <th data-sort="scenario_coverage.f1">Scenario F1</th>
+              <th class="detail-col" data-sort="scenario_coverage.precision">Scenario-P</th>
+              <th class="detail-col" data-sort="scenario_coverage.recall">Scenario-R</th>
+              <th data-sort="rv_avg">RV</th>
+              <th data-sort="safety_pass_rate">Safety Pass Rate</th>
+              <th data-sort="submission_date">Submission Date</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    const DATA_PATH = "./shoppingcomp_leaderborad.json";
+    const tbody = document.getElementById("tbody");
+    const statusEl = document.getElementById("status");
+    const statsEl = document.getElementById("stats");
+    const categoryFilter = document.getElementById("categoryFilter");
+    const orgFilter = document.getElementById("orgFilter");
+    const searchBox = document.getElementById("searchBox");
+    const detailMetricsToggle = document.getElementById("detailMetricsToggle");
+    const leaderboardTable = document.getElementById("leaderboardTable");
+    const headers = Array.from(document.querySelectorAll("thead th[data-sort]"));
+
+    let raw = [];
+    let sortState = { key: "rank", asc: true };
+    let showDetailMetrics = false;
+
+    function getByPath(obj, path) {
+      return path.split(".").reduce((acc, p) => (acc == null ? acc : acc[p]), obj);
+    }
+    function fmt(n) {
+      if (n == null || Number.isNaN(n)) return "-";
+      return typeof n === "number" ? n.toFixed(2) : String(n);
+    }
+    function compare(a, b) {
+      const av = getByPath(a, sortState.key);
+      const bv = getByPath(b, sortState.key);
+      let delta = 0;
+      if (typeof av === "number" && typeof bv === "number") delta = av - bv;
+      else delta = String(av ?? "").localeCompare(String(bv ?? ""));
+      return sortState.asc ? delta : -delta;
+    }
+    function uniqueSorted(values) {
+      return [...new Set(values.filter(Boolean))].sort((x, y) => x.localeCompare(y));
+    }
+    function addOptions(select, items) {
+      items.forEach(v => {
+        const o = document.createElement("option");
+        o.value = v;
+        o.textContent = v;
+        select.appendChild(o);
+      });
+    }
+
+    function renderStats(data) {
+      const top = [...data].sort((a, b) => (a.rank ?? 9999) - (b.rank ?? 9999))[0];
+      const nonHumanRows = data.filter(r => String(r.organization ?? "").toLowerCase() !== "human");
+      const bestNonHuman = [...nonHumanRows].sort(
+        (a, b) => (b.answer_match?.f1 ?? -1) - (a.answer_match?.f1 ?? -1)
+      )[0];
+      const cats = new Set(data.map(r => r.category)).size;
+      const orgs = new Set(data.map(r => r.organization)).size;
+
+      const cards = [
+        ["Total Submissions", data.length],
+        ["Categories", cats],
+        ["Organizations", orgs],
+        ["Top-1 Model", top ? top.model_name : "-"],
+        ["Best Non-Human F1", bestNonHuman ? fmt(bestNonHuman.answer_match?.f1) : "-"]
+      ];
+
+      statsEl.innerHTML = cards.map(([k, v]) => (
+        `<div class="card"><div class="k">${k}</div><div class="v">${v}</div></div>`
+      )).join("");
+    }
+
+    function renderTable() {
+      const q = searchBox.value.trim().toLowerCase();
+      const c = categoryFilter.value;
+      const o = orgFilter.value;
+
+      const rows = raw
+        .filter(r => !c || r.category === c)
+        .filter(r => !o || r.organization === o)
+        .filter(r => {
+          if (!q) return true;
+          const text = `${r.model_name ?? ""} ${r.organization ?? ""} ${r.category ?? ""}`.toLowerCase();
+          return text.includes(q);
+        })
+        .sort(compare);
+
+      if (!rows.length) {
+        const colSpan = showDetailMetrics ? 14 : 10;
+        tbody.innerHTML = `<tr><td colspan="${colSpan}" style="color:#9fb0cc;">No results under current filters.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = rows.map(r => `
+        <tr>
+          <td class="rank num">${fmt(r.rank)}</td>
+          <td class="model">${r.model_name ?? "-"}</td>
+          <td>${r.organization ?? "-"}</td>
+          <td><span class="tag">${r.category ?? "-"}</span></td>
+          <td class="num">${fmt(r.answer_match?.f1)}</td>
+          <td class="num detail-col">${fmt(r.answer_match?.precision)}</td>
+          <td class="num detail-col">${fmt(r.answer_match?.recall)}</td>
+          <td class="num">${fmt(r.sop_avg)}</td>
+          <td class="num">${fmt(r.scenario_coverage?.f1)}</td>
+          <td class="num detail-col">${fmt(r.scenario_coverage?.precision)}</td>
+          <td class="num detail-col">${fmt(r.scenario_coverage?.recall)}</td>
+          <td class="num">${fmt(r.rv_avg)}</td>
+          <td class="num">${fmt(r.safety_pass_rate)}</td>
+          <td>${r.submission_date ?? "-"}</td>
+        </tr>
+      `).join("");
+    }
+
+    async function init() {
+      try {
+        const res = await fetch(DATA_PATH, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        raw = await res.json();
+
+        addOptions(categoryFilter, uniqueSorted(raw.map(r => r.category)));
+        addOptions(orgFilter, uniqueSorted(raw.map(r => r.organization)));
+
+        renderStats(raw);
+        renderTable();
+
+        statusEl.classList.remove("ok", "warn");
+        statusEl.textContent = "";
+      } catch (e) {
+        statusEl.classList.add("warn");
+        statusEl.textContent = `Failed to load ${DATA_PATH}: ${e.message}`;
+      }
+    }
+
+    headers.forEach(h => {
+      h.addEventListener("click", () => {
+        const key = h.dataset.sort;
+        if (sortState.key === key) {
+          sortState.asc = !sortState.asc;
+        } else {
+          sortState = { key, asc: true };
+        }
+        renderTable();
+      });
+    });
+
+    categoryFilter.addEventListener("change", renderTable);
+    orgFilter.addEventListener("change", renderTable);
+    searchBox.addEventListener("input", renderTable);
+    detailMetricsToggle.addEventListener("click", () => {
+      showDetailMetrics = !showDetailMetrics;
+      leaderboardTable.classList.toggle("table-show-details", showDetailMetrics);
+      detailMetricsToggle.classList.toggle("active", showDetailMetrics);
+      detailMetricsToggle.setAttribute("aria-pressed", String(showDetailMetrics));
+      detailMetricsToggle.textContent = showDetailMetrics ? "Hide precision/recall" : "Show precision/recall";
+      renderTable();
+    });
+
+    init();
+  </script>
+</body>
+</html>

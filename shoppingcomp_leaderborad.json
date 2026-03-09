@@ -1,0 +1,395 @@
+[
+    {
+      "rank": 1,
+      "model_name": "Experts",
+      "category": "Human Performance (More time cost)",
+      "organization": "Human",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 38.52,
+        "recall": 24.58,
+        "f1": 30.02
+      },
+      "sop_avg": 68.19,
+      "scenario_coverage": {
+        "precision": 97.92,
+        "recall": 97.88,
+        "f1": 97.9
+      },
+      "rv_avg": 90.96,
+      "safety_pass_rate": 77.08,
+      "safety_pass_rate_std": null,
+      "std": null
+    },
+    {
+      "rank": 2,
+      "model_name": "Annotators",
+      "category": "Human Performance (More time cost)",
+      "organization": "Human",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 39.41,
+        "recall": 20.83,
+        "f1": 27.25
+      },
+      "sop_avg": 67.9,
+      "scenario_coverage": {
+        "precision": 97.98,
+        "recall": 98.93,
+        "f1": 98.45
+      },
+      "rv_avg": 85.17,
+      "safety_pass_rate": 60.41,
+      "safety_pass_rate_std": null,
+      "std": null
+    },
+    {
+      "rank": 3,
+      "model_name": "Gemini DeepResearch",
+      "category": "DeepResearch Products",
+      "organization": "Google",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 21.16,
+        "recall": 24.4,
+        "f1": 22.66
+      },
+      "sop_avg": 62.35,
+      "scenario_coverage": {
+        "precision": 91.26,
+        "recall": 84.89,
+        "f1": 86.71
+      },
+      "rv_avg": 87.69,
+      "safety_pass_rate": 34.12,
+      "safety_pass_rate_std": null,
+      "std": null
+    },
+    {
+      "rank": 4,
+      "model_name": "ChatGPT DeepResearch",
+      "category": "DeepResearch Products",
+      "organization": "OpenAI",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 17.66,
+        "recall": 30.89,
+        "f1": 22.47
+      },
+      "sop_avg": 59.29,
+      "scenario_coverage": {
+        "precision": 93.45,
+        "recall": 92.98,
+        "f1": 92.81
+      },
+      "rv_avg": 83.07,
+      "safety_pass_rate": 37.86,
+      "safety_pass_rate_std": null,
+      "std": null
+    },
+    {
+      "rank": 5,
+      "model_name": "GPT-5.2",
+      "category": "LLM Models",
+      "organization": "OpenAI",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 13.51,
+        "recall": 26.01,
+        "f1": 17.76
+      },
+      "sop_avg": 52.08,
+      "scenario_coverage": {
+        "precision": 86.71,
+        "recall": 89.8,
+        "f1": 88.21
+      },
+      "rv_avg": 91.73,
+      "safety_pass_rate": 35.42,
+      "safety_pass_rate_std": 6.18,
+      "std": {
+        "answer_match_precision": 0.94,
+        "answer_match_recall": 1.78,
+        "answer_match_f1": 1.08,
+        "sop_avg": 1.1,
+        "scenario_coverage_precision": 1.48,
+        "scenario_coverage_recall": 1.53,
+        "scenario_coverage_f1": 0.12,
+        "rv_avg": 0.36
+      }
+    },
+    {
+      "rank": 6,
+      "model_name": "GPT-5",
+      "category": "LLM Models",
+      "organization": "OpenAI",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 12.65,
+        "recall": 26.87,
+        "f1": 17.19
+      },
+      "sop_avg": 48.67,
+      "scenario_coverage": {
+        "precision": 80.97,
+        "recall": 92.12,
+        "f1": 86.18
+      },
+      "rv_avg": 92.35,
+      "safety_pass_rate": 36.67,
+      "safety_pass_rate_std": 5.02,
+      "std": {
+        "answer_match_precision": 0.99,
+        "answer_match_recall": 3.09,
+        "answer_match_f1": 1.48,
+        "sop_avg": 0.47,
+        "scenario_coverage_precision": 1.01,
+        "scenario_coverage_recall": 1.39,
+        "scenario_coverage_f1": 1.08,
+        "rv_avg": 0.44
+      }
+    },
+    {
+      "rank": 7,
+      "model_name": "Gemini-3-pro",
+      "category": "LLM Models",
+      "organization": "Google",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 15.33,
+        "recall": 16.38,
+        "f1": 15.82
+      },
+      "sop_avg": 57.12,
+      "scenario_coverage": {
+        "precision": 83.18,
+        "recall": 85.88,
+        "f1": 84.5
+      },
+      "rv_avg": 87.98,
+      "safety_pass_rate": 28.33,
+      "safety_pass_rate_std": 3.49,
+      "std": {
+        "answer_match_precision": 1.51,
+        "answer_match_recall": 0.74,
+        "answer_match_f1": 1.11,
+        "sop_avg": 1.44,
+        "scenario_coverage_precision": 1.92,
+        "scenario_coverage_recall": 1.06,
+        "scenario_coverage_f1": 1.15,
+        "rv_avg": 0.79
+      }
+    },
+    {
+      "rank": 8,
+      "model_name": "Gemini-2.5-pro",
+      "category": "LLM Models",
+      "organization": "Google",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 14.21,
+        "recall": 16.37,
+        "f1": 15.18
+      },
+      "sop_avg": 52.25,
+      "scenario_coverage": {
+        "precision": 80.82,
+        "recall": 86.71,
+        "f1": 83.65
+      },
+      "rv_avg": 87.77,
+      "safety_pass_rate": 27.08,
+      "safety_pass_rate_std": 5.71,
+      "std": {
+        "answer_match_precision": 2.4,
+        "answer_match_recall": 2.97,
+        "answer_match_f1": 2.57,
+        "sop_avg": 2.38,
+        "scenario_coverage_precision": 1.45,
+        "scenario_coverage_recall": 1.24,
+        "scenario_coverage_f1": 1.06,
+        "rv_avg": 1.2
+      }
+    },
+    {
+      "rank": 9,
+      "model_name": "Deepseek-v3.2 w/ thinking",
+      "category": "LLM Models",
+      "organization": "DeepSeek",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 12.08,
+        "recall": 17.5,
+        "f1": 13.96
+      },
+      "sop_avg": 46.11,
+      "scenario_coverage": {
+        "precision": 86.14,
+        "recall": 31.19,
+        "f1": 45.07
+      },
+      "rv_avg": 80.58,
+      "safety_pass_rate": 25.42,
+      "safety_pass_rate_std": 3.73,
+      "std": {
+        "answer_match_precision": 4.51,
+        "answer_match_recall": 3.1,
+        "answer_match_f1": 3.63,
+        "sop_avg": 4.3,
+        "scenario_coverage_precision": 3.37,
+        "scenario_coverage_recall": 8.78,
+        "scenario_coverage_f1": 9.84,
+        "rv_avg": 2.45
+      }
+    },
+    {
+      "rank": 10,
+      "model_name": "Grok-4",
+      "category": "LLM Models",
+      "organization": "xAI",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 10.41,
+        "recall": 17.96,
+        "f1": 13.16
+      },
+      "sop_avg": 43.44,
+      "scenario_coverage": {
+        "precision": 80.4,
+        "recall": 84.69,
+        "f1": 82.74
+      },
+      "rv_avg": 81.77,
+      "safety_pass_rate": 17.92,
+      "safety_pass_rate_std": 1.86,
+      "std": {
+        "answer_match_precision": 1.57,
+        "answer_match_recall": 3.01,
+        "answer_match_f1": 2.02,
+        "sop_avg": 2.72,
+        "scenario_coverage_precision": 0.97,
+        "scenario_coverage_recall": 3.29,
+        "scenario_coverage_f1": 1.52,
+        "rv_avg": 1.52
+      }
+    },
+    {
+      "rank": 11,
+      "model_name": "Gemini-2.5-flash",
+      "category": "LLM Models",
+      "organization": "Google",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 10.13,
+        "recall": 14.6,
+        "f1": 11.92
+      },
+      "sop_avg": 42.03,
+      "scenario_coverage": {
+        "precision": 79.13,
+        "recall": 85.57,
+        "f1": 82.2
+      },
+      "rv_avg": 83.23,
+      "safety_pass_rate": 22.92,
+      "safety_pass_rate_std": 5.1,
+      "std": {
+        "answer_match_precision": 2.1,
+        "answer_match_recall": 2.41,
+        "answer_match_f1": 2.23,
+        "sop_avg": 1.32,
+        "scenario_coverage_precision": 1.51,
+        "scenario_coverage_recall": 1.85,
+        "scenario_coverage_f1": 0.97,
+        "rv_avg": 1.29
+      }
+    },
+    {
+      "rank": 12,
+      "model_name": "Deepseek-v3.2 w/o thinking",
+      "category": "LLM Models",
+      "organization": "DeepSeek",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 8.38,
+        "recall": 18.38,
+        "f1": 11.51
+      },
+      "sop_avg": 34.06,
+      "scenario_coverage": {
+        "precision": 85.7,
+        "recall": 22.89,
+        "f1": 35.83
+      },
+      "rv_avg": 79.79,
+      "safety_pass_rate": 22.92,
+      "safety_pass_rate_std": 2.55,
+      "std": {
+        "answer_match_precision": 1.27,
+        "answer_match_recall": 4.07,
+        "answer_match_f1": 2.0,
+        "sop_avg": 5.34,
+        "scenario_coverage_precision": 2.23,
+        "scenario_coverage_recall": 5.47,
+        "scenario_coverage_f1": 6.75,
+        "rv_avg": 0.74
+      }
+    },
+    {
+      "rank": 13,
+      "model_name": "GPT-4o",
+      "category": "LLM Models",
+      "organization": "OpenAI",
+      "eval_version": "v1",
+      "dataset_version": "v2",
+      "submission_date": "2026-02-08",
+      "answer_match": {
+        "precision": 8.14,
+        "recall": 12.67,
+        "f1": 9.86
+      },
+      "sop_avg": 35.3,
+      "scenario_coverage": {
+        "precision": 73.76,
+        "recall": 67.41,
+        "f1": 70.42
+      },
+      "rv_avg": 74.31,
+      "safety_pass_rate": 12.5,
+      "safety_pass_rate_std": 4.17,
+      "std": {
+        "answer_match_precision": 1.05,
+        "answer_match_recall": 2.47,
+        "answer_match_f1": 1.37,
+        "sop_avg": 1.6,
+        "scenario_coverage_precision": 2.38,
+        "scenario_coverage_recall": 1.53,
+        "scenario_coverage_f1": 1.24,
+        "rv_avg": 1.33
+      }
+    }
+  ]
